@@ -1,0 +1,57 @@
+[
+    {
+        "_id": 0,
+        "name": "Alex",
+        "session_id": null,
+        "can_help": true,
+        "need_help": false,
+        "auth_vk": null,
+        "auth_fb": null,
+        "auth_ok": null,
+        "post_id": null
+    },
+    {
+        "_id": 1,
+        "name": "Alex",
+        "session_id": null,
+        "can_help": true,
+        "need_help": false,
+        "auth_vk": null,
+        "auth_fb": null,
+        "auth_ok": null,
+        "post_id": null
+    },
+    {
+        "_id": 2,
+        "name": "Alex",
+        "session_id": null,
+        "can_help": true,
+        "need_help": false,
+        "auth_vk": null,
+        "auth_fb": null,
+        "auth_ok": null,
+        "post_id": null
+    },
+    {
+        "_id": 3,
+        "name": "Alex",
+        "session_id": null,
+        "can_help": true,
+        "need_help": false,
+        "auth_vk": null,
+        "auth_fb": null,
+        "auth_ok": null,
+        "post_id": null
+    },
+    {
+        "_id": 4,
+        "name": "Alex",
+        "session_id": null,
+        "can_help": true,
+        "need_help": false,
+        "auth_vk": null,
+        "auth_fb": null,
+        "auth_ok": null,
+        "post_id": null
+    }
+]

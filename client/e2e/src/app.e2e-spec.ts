@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('otus-receipt-roulette-client app is running!');
+    expect(page.getTitleText()).toEqual('reciept-roulette-client app is running!');
   });
 
   afterEach(async () => {

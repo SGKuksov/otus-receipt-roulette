@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'otus-receipt-roulette-client'`, () => {
+  it(`should have as title 'reciept-roulette-client'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('otus-receipt-roulette-client');
+    expect(app.title).toEqual('reciept-roulette-client');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('otus-receipt-roulette-client app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('reciept-roulette-client app is running!');
   });
 });
