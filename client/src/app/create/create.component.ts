@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {RecieptService} from "../reciept.service";
 
 @Component({
   selector: 'app-create',
@@ -6,10 +7,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create.component.scss']
 })
 export class CreateComponent implements OnInit {
+  model
 
-  constructor() { }
+  constructor(
+    private recieptService: RecieptService,
+  ) {
+  }
 
   ngOnInit(): void {
   }
+
+  create() {
+    this.recieptService.createReciept(this.model).subscribe(res => {
+      if (res.status === 200) {
+        //  Show success
+      } else {
+        //  Show error
+      }
+    });
+  }
+
+  showSuccess() {}
+  showError() {}
 
 }

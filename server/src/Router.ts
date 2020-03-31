@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
 import UserRouter from "./router/UserRouter";
-import PostRouter from "./router/PostRouter";
+import RecieptRouter from "./router/RecieptRouter";
 
 // Swagger
 import swaggerJSDoc from "swagger-jsdoc";
@@ -14,7 +14,7 @@ class Router {
 
     server.use("/", router);
     router.use("/users", new UserRouter().router);
-    router.use("/posts", new PostRouter().router);
+    router.use("/reciepts", new RecieptRouter().router);
 
     // Swagger config
     // Extended: https://swagger.io/specification/#infoObject

@@ -1,11 +1,12 @@
 <div class="page">
   <mat-toolbar  class="page__header">
-    <span>Receipt Roulette</span>
+    <a routerLink="/">Receipt Roulette</a>
 
     <!-- This fills the remaining space of the current row -->
     <span class="spacer"></span>
 
-    <a routerLink="/favorites">Избранное</a>
+    <a routerLink="/favorites" class="page__nav-link">Мое избранное</a>
+    <a routerLink="/create" class="page__nav-link">Добавить новый</a>
   </mat-toolbar>
 
   <div class="page__inner">

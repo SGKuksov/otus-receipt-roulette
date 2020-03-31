@@ -1,0 +1,156 @@
+* {
+  box-sizing: border-box;
+}
+
+.create {
+
+  &__inner {
+    width: 500px;
+    margin: 0 auto;
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__input {
+    display: flex;
+    align-items: baseline;
+    position: relative;
+    height: 40px;
+    margin-bottom: 30px;
+
+    label {
+      width: 50%;
+      max-width: 50%;
+      height: 100%;
+      font-size: 20px;
+    }
+
+    input,
+    select,
+    textarea {
+      background-color: #ffffff;
+      display: block;
+      height: 100%;
+      width: 100%;
+      border-radius: 5px;
+      padding-left: 10px;
+      padding-right: 10px;
+      border: 1px solid #000000;
+    }
+
+    textarea {
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+
+    &.--file {
+      span {
+        font-size: 14px;
+        text-decoration: underline;
+        cursor: pointer;
+      }
+
+      input {
+        display: none;
+      }
+    }
+
+    &.--step {
+      display: block;
+      height: initial;
+    }
+
+    &.--desc {
+      height: 70px;
+    }
+  }
+
+  &__add-btn {
+    position: absolute;
+    left: 105%;
+    height: 40px;
+    width: 40px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    font-size: 20px;
+
+    &:hover {
+      background-color: black;
+      color: #ffffff;
+      transition: all 300ms;
+    }
+  }
+
+  &__input-step-list {
+    width: 100%;
+    margin: 0;
+    padding: 20px 0;
+  }
+
+  &__input-step-item {
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 15px;
+    list-style: none;
+    height: 50px;
+    position: relative;
+
+    input[type="file"] {
+      display: none;
+    }
+
+    textarea {
+      height: 50px;
+      width: 50%;
+    }
+
+    label {
+
+      span {
+        font-size: 14px;
+        text-decoration: underline;
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        top: 15px;
+      }
+    }
+  }
+
+  &__add-step-btn {
+    width: 100%;
+    border: 1px solid #000000;
+    height: 40px;
+    width: 100%;
+    font-size: 20px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+
+    &:hover {
+      background-color: black;
+      color: #ffffff;
+      transition: all 300ms;
+    }
+  }
+
+  &__btn {
+    border: 1px solid #000000;
+    background-color: #000000;
+    height: 40px;
+    width: 100%;
+    font-size: 20px;
+    border-radius: 5px;
+    color: #ffffff;
+
+    &:hover {
+      background-color: #ffffff;
+      color: #000000;
+      transition: all 300ms;
+    }
+  }
+}

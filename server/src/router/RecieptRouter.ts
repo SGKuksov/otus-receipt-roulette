@@ -1,17 +1,17 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
-import posts from "../mock-data/reciepts.json";
+import reciepts from "../mock-data/reciepts.json";
 
-class PostRouter {
+class RecieptRouter {
   router: express.Router;
 
   constructor() {
     this.router = express.Router();
     this.router.options("*", cors());
 
-    // get all posts
+    // get all reciepts
     this.router.get("/", cors(), (req: Request, res: Response) => {
-      res.json(posts);
+      res.json(reciepts);
     });
 
     // create post by id
@@ -27,8 +27,8 @@ class PostRouter {
     this.router.get("/:id", cors(), (req: Request, res: Response) => {
       const key = parseInt(req.params.id, 10);
 
-      if (!!posts[key]) {
-        res.json(posts[key]);
+      if (!!reciepts[key]) {
+        res.json(reciepts[key]);
       } else {
         res.status(404).send(JSON.stringify({ "error": "no such post" }));
       }
@@ -39,7 +39,7 @@ class PostRouter {
       try {
         const key = parseInt(req.params.id, 10);
 
-        if (!!posts[key]) {
+        if (!!reciepts[key]) {
           res.json({ status: 204 });
         } else {
           res.status(404).send(JSON.stringify({ "error": "no such post" }));
@@ -53,7 +53,7 @@ class PostRouter {
     this.router.delete("/:id", cors(), (req: Request, res: Response) => {
       const key = parseInt(req.params.id, 10);
 
-      if (!!posts[key]) {
+      if (!!reciepts[key]) {
         res.json({ status: 200 });
       } else {
         res.status(404).send(JSON.stringify({ "error": "no such post" }));
@@ -62,4 +62,4 @@ class PostRouter {
   }
 }
 
-export default PostRouter;
+export default RecieptRouter;

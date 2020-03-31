@@ -1,1 +1,43 @@
-<p>reciept-page works!</p>
+<div class="reciept">
+  <div class="reciept__inner">
+    <h1 class="reciept__title">{{ recieptInfo.name }}</h1>
+
+    <div class="reciept__categories">
+      <span *ngFor="let item of recieptInfo.category">
+        {{ item }}
+      </span>
+    </div>
+
+    <p>Сложность: {{ recieptInfo.complexity }}</p>
+    <p>Время приготовления: {{ recieptInfo.time }}</p>
+
+    <p class="reciept__desc">{{ recieptInfo.description }}</p>
+
+    <h2>Ингредиенты</h2>
+    <ul class="reciept__ingredients">
+      <li class="reciept__ingredients-item" *ngFor="let ingredient of recieptInfo.ingredients">
+        <span>{{ ingredient.ingredient }}</span>
+        <span class="delimeter"></span>
+        <span>{{ ingredient.amount }}</span>
+      </li>
+    </ul>
+
+    <div class="reciept__steps">
+      <h2>Шаги приготовления</h2>
+
+      <div class="reciept__steps-item" *ngFor="let step of recieptInfo.steps; index as i;">
+        <div class="reciept__steps-index">{{ i + 1 }}</div>
+
+        <div class="reciept__steps-img">
+          <img src="{{ 'http://localhost:3000' + step.picture }}" alt="">
+        </div>
+
+        <div class="reciept__steps-desc">
+          {{ step.description }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

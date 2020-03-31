@@ -7,6 +7,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 h1,
 h2,
 h3,
@@ -47,6 +51,8 @@ p {
   min-height: 100%;
 
   &__header {
+    border-bottom: 1px solid #000;
+
     .mat-menu-content {
 
       a.mat-menu-item {
@@ -55,13 +61,13 @@ p {
     }
 
     a {
-      color: #ffffff;
+      color: #000000;
       text-decoration: none;
     }
   }
 
   &__logo {
-    color: #ffffff;
+    color: #000000;
     text-decoration: none;
   }
 
@@ -83,14 +89,18 @@ p {
     }
 
     a {
-      color: #ffffff;
+      color: #000000;
       text-decoration: none;
     }
   }
 
+  &__nav-link {
+    margin-left: 20px;
+  }
+
   &__inner {
     flex: 1 0 auto;
-    //padding: 8px 16px;
+    padding: 8px 16px;
   }
 
   &__footer {

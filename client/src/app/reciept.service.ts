@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RecieptService {
-  private baseUrl = 'http://localhost:3000/posts';
+  private baseUrl = 'http://localhost:3000/reciepts';
 
   constructor(
     private http: HttpClient

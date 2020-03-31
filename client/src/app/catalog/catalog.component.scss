@@ -1,0 +1,29 @@
+.catalog {
+  padding-top: 20px;
+
+  &__item {
+    border: 1px solid #000;
+    margin-bottom: 30px;
+    border-radius: 5px;
+    display: flex;
+    height: 200px;
+    color: #000;
+    text-decoration: none;
+  }
+
+  &__item-img {
+    width: 40%;
+    height: 100%;
+
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &__item-info {
+    width: 60%;
+    padding: 30px;
+  }
+}

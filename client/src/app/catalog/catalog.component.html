@@ -1,1 +1,13 @@
-<p>catalog works!</p>
+<div class="catalog">
+  <a [routerLink]="'catalog/' + reciept._id" *ngFor="let reciept of list" class="catalog__item">
+    <div class="catalog__item-img">
+      <img src="{{ 'http://localhost:3000' + reciept.thumbnail }}" alt="{{ reciept.name  }}">
+    </div>
+
+    <div class="catalog__item-info">
+      <h2>{{ reciept.name }}</h2>
+
+      <p>{{ reciept.description }}</p>
+    </div>
+  </a>
+</div>

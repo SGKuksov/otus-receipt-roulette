@@ -1,6 +1,7 @@
 interface Reciept {
   _id: string;
   name: string;
+  thumbnail: string;
   category: string;
   complexity: number;
   time: string;

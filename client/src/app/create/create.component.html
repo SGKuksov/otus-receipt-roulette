@@ -1,1 +1,120 @@
-<p>create works!</p>
+<div class="create">
+  <div class="create__inner">
+
+    <div class="create__form">
+      <div class="create__input">
+        <label for="name">
+          Название
+        </label>
+
+        <label>
+          <input id="name" type="text" placeholder="Например, Борщ">
+        </label>
+      </div>
+
+      <div class="create__input --desc">
+        <label for="desc">
+          Описание рецепта
+        </label>
+
+        <label>
+          <textarea name="" id="desc" cols="30" rows="10"
+                    placeholder="Чиабатта — это итальянский хлеб с хрустящей корочкой"></textarea>
+        </label>
+      </div>
+
+      <div class="create__input">
+        <label for="category">
+          Категория
+        </label>
+
+        <label>
+          <select id="category">
+            <option value="0">Борщи</option>
+            <option value="0">Супы</option>
+            <option value="0">Первые блюда</option>
+          </select>
+        </label>
+
+        <button class="create__add-btn" title="Добавить еще категорию">+</button>
+      </div>
+
+      <div class="create__input --file">
+        <label for="cover">
+          Обложка рецепта
+        </label>
+
+        <label>
+          <span>
+            Нажмите, чтобы загрузить файл
+          </span>
+
+          <input id="cover" type="file">
+        </label>
+      </div>
+
+      <div class="create__input">
+        <label for="complexity">
+          Сложность рецепта
+        </label>
+
+        <label>
+          <input id="complexity" type="number" max="5" min="1" placeholder="От 1 до 5">
+        </label>
+      </div>
+
+      <div class="create__input">
+        <label for="time">
+          Время приготовления
+        </label>
+
+        <label>
+          <input id="time" type="text" placeholder="Например, 2 часа">
+        </label>
+      </div>
+
+      <div class="create__input">
+        <label for="ingredients">
+          Ингредиенты
+        </label>
+
+        <label>
+          <select id="ingredients">
+            <option value="0">Морковь</option>
+            <option value="0">Картошка</option>
+            <option value="0">Свекла</option>
+          </select>
+        </label>
+
+        <button class="create__add-btn" title="Добавить еще ингредиент">+</button>
+      </div>
+
+      <div class="create__input --step">
+        <label>
+          Шаги приготовления
+        </label>
+
+        <ul class="create__input-step-list">
+          <li class="create__input-step-item">
+            <label>
+              <span>
+                Нажмите, чтобы загрузить файл
+              </span>
+
+              <input type="file">
+            </label>
+
+            <textarea type="text"
+                      placeholder="Через 12 часов выкладываем тесто в чашу для миксера, добавляем 150 мл воды и 150 г муки."></textarea>
+          </li>
+        </ul>
+
+        <button class="create__add-step-btn">Добавить еще шаг</button>
+      </div>
+
+      <button class="create__btn">
+        Создать рецепт
+      </button>
+    </div>
+  </div>
+</div>

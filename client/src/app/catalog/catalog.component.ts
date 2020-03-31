@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {RecieptService} from "../reciept.service";
 
 @Component({
   selector: 'app-catalog',
@@ -6,10 +7,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./catalog.component.scss']
 })
 export class CatalogComponent implements OnInit {
+  public list: Reciept[];
 
-  constructor() { }
+  constructor(
+    private recieptService: RecieptService,
+  ) { }
 
   ngOnInit(): void {
+    this.getList();
+  }
+
+  getList() {
+    this.recieptService.getRecieptList().subscribe(res => {
+      this.list = res;
+    });
   }
 
 }
