@@ -1,13 +1,23 @@
 import {Component, OnInit} from '@angular/core';
 import {RecieptService} from "../reciept.service";
 
+interface Step {
+  picture: string;
+  description: string;
+}
+
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
   styleUrls: ['./create.component.scss']
 })
 export class CreateComponent implements OnInit {
-  model
+  public model: Reciept;
+  public ingredientsList: [{
+    ingredient: Ingredient;
+    amount: number;
+  }] = [{ingredient: {_id: "", name: ""}, amount: 0}];
+  public stepList: Step[] = [];
 
   constructor(
     private recieptService: RecieptService,
@@ -27,7 +37,20 @@ export class CreateComponent implements OnInit {
     });
   }
 
-  showSuccess() {}
-  showError() {}
+  showSuccess() {
+  }
 
+  showError() {
+  }
+
+  addIngredient() {
+    this.ingredientsList.push({ingredient: {_id: "", name: ""}, amount: 0})
+  }
+
+  addStep() {
+    this.stepList.push({
+      description: "",
+      picture: "",
+    })
+  }
 }

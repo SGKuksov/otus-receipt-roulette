@@ -8,7 +8,12 @@
         </label>
 
         <label>
-          <input id="name" type="text" placeholder="Например, Борщ">
+          <input
+            id="name"
+            type="text"
+            placeholder="Например, Борщ"
+            [(ngModel)]="model.name"
+          >
         </label>
       </div>
 
@@ -18,8 +23,14 @@
         </label>
 
         <label>
-          <textarea name="" id="desc" cols="30" rows="10"
-                    placeholder="Чиабатта — это итальянский хлеб с хрустящей корочкой"></textarea>
+          <textarea
+            name=""
+            id="desc"
+            cols="30"
+            rows="10"
+            placeholder="Чиабатта — это итальянский хлеб с хрустящей корочкой"
+            [(ngModel)]="model.description"
+          ></textarea>
         </label>
       </div>
 
@@ -29,14 +40,20 @@
         </label>
 
         <label>
-          <select id="category">
+          <select
+            id="category"
+            [(ngModel)]="model.category"
+          >
             <option value="0">Борщи</option>
             <option value="0">Супы</option>
             <option value="0">Первые блюда</option>
           </select>
         </label>
 
-        <button class="create__add-btn" title="Добавить еще категорию">+</button>
+        <button
+          class="create__add-btn"
+          title="Добавить еще категорию"
+        >+</button>
       </div>
 
       <div class="create__input --file">
@@ -49,7 +66,11 @@
             Нажмите, чтобы загрузить файл
           </span>
 
-          <input id="cover" type="file">
+          <input
+            id="cover"
+            type="file"
+            [(ngModel)]="model.thumbnail"
+          >
         </label>
       </div>
 
@@ -59,7 +80,14 @@
         </label>
 
         <label>
-          <input id="complexity" type="number" max="5" min="1" placeholder="От 1 до 5">
+          <input
+            id="complexity"
+            type="number"
+            max="5"
+            min="1"
+            placeholder="От 1 до 5"
+            [(ngModel)]="model.complexity"
+          >
         </label>
       </div>
 
@@ -69,7 +97,12 @@
         </label>
 
         <label>
-          <input id="time" type="text" placeholder="Например, 2 часа">
+          <input
+            id="time"
+            type="text"
+            placeholder="Например, 2 часа"
+            [(ngModel)]="model.time"
+          >
         </label>
       </div>
 
@@ -79,14 +112,21 @@
         </label>
 
         <label>
-          <select id="ingredients">
+          <select
+            id="ingredients"
+            [(ngModel)]="model.ingredients"
+          >
             <option value="0">Морковь</option>
             <option value="0">Картошка</option>
             <option value="0">Свекла</option>
           </select>
         </label>
 
-        <button class="create__add-btn" title="Добавить еще ингредиент">+</button>
+        <button
+          class="create__add-btn"
+          title="Добавить еще ингредиент"
+          (click)="addIngredient()"
+        >+</button>
       </div>
 
       <div class="create__input --step">
@@ -109,7 +149,10 @@
           </li>
         </ul>
 
-        <button class="create__add-step-btn">Добавить еще шаг</button>
+        <button
+          class="create__add-step-btn"
+          (click)="addStep()"
+        >Добавить еще шаг</button>
       </div>
 
       <button class="create__btn">
