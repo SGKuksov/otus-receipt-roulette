@@ -1,15 +1,18 @@
 import express, {Request, Response} from "express";
 import cors from "cors";
 import RecieptController from "../controllers/RecieptController";
+import multer from 'multer';
 
 class RecieptRouter {
   router: express.Router;
   private recieptController: RecieptController;
+  private upload: any;
 
   constructor() {
     this.router = express.Router();
     this.router.options("*", cors());
     this.recieptController = new RecieptController();
+    this.upload = multer({dest: 'uploads/'});
 
     // get all reciepts
     this.router.get("/", cors(), async (req: Request, res: Response) => {

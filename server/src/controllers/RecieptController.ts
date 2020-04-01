@@ -2,6 +2,8 @@ import {Reciept} from "../models/Reciept";
 import mongoose from "mongoose";
 
 class RecieptController {
+  private upload: any;
+
   constructor() {
   }
 
