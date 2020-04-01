@@ -1,62 +1,87 @@
-import express, { Request, Response } from "express";
+import express, {Request, Response} from "express";
 import cors from "cors";
-import reciepts from "../mock-data/reciepts.json";
+import RecieptController from "../controllers/RecieptController";
 
 class RecieptRouter {
   router: express.Router;
+  private recieptController: RecieptController;
 
   constructor() {
     this.router = express.Router();
     this.router.options("*", cors());
+    this.recieptController = new RecieptController();
 
     // get all reciepts
-    this.router.get("/", cors(), (req: Request, res: Response) => {
-      res.json(reciepts);
+    this.router.get("/", cors(), async (req: Request, res: Response) => {
+      try {
+        const reciepts = await this.recieptController.getRecieptList();
+
+        res.json(reciepts);
+      } catch (e) {
+        res.send(e);
+      }
     });
 
     // create post by id
-    this.router.post("/", cors(), (req: Request, res: Response) => {
+    this.router.post("/", cors(), async (req: Request, res: Response) => {
       try {
-        res.json({ status: 201 });
+        await this.recieptController.createReciept(req.body);
+
+        res.json({status: 201});
       } catch (e) {
-        res.status(400).send(JSON.stringify({ "error": "problem with posted data" }));
+        res.status(400).send(JSON.stringify({"error": "problem with posted data"}));
       }
     });
 
     // get post by id
-    this.router.get("/:id", cors(), (req: Request, res: Response) => {
-      const key = parseInt(req.params.id, 10);
+    this.router.get("/:id", cors(), async (req: Request, res: Response) => {
+      try {
+        const {params: {id}} = req;
+        const validation = await this.recieptController.checkExist(id);
 
-      if (!!reciepts[key]) {
-        res.json(reciepts[key]);
-      } else {
-        res.status(404).send(JSON.stringify({ "error": "no such post" }));
+        if (validation.isValid) {
+          const reciept = await this.recieptController.getReciept(id);
+
+          res.json(reciept);
+        } else {
+          res.status(404).json({"error": validation.error});
+        }
+      } catch (e) {
+
+        console.log(e)
+        res.send(e);
       }
     });
 
     // update post
-    this.router.put("/:id", cors(), (req: Request, res: Response) => {
+    this.router.put("/:id", cors(), async (req: Request, res: Response) => {
       try {
-        const key = parseInt(req.params.id, 10);
+        const {params: {id}} = req;
+        const validation = await this.recieptController.checkExist(id);
 
-        if (!!reciepts[key]) {
-          res.json({ status: 204 });
+        if (validation.isValid) {
+          await this.recieptController.updateReciept(id, req.body);
+
+          res.json({status: 204});
         } else {
-          res.status(404).send(JSON.stringify({ "error": "no such post" }));
+          res.status(404).json({"error": validation.error});
         }
       } catch (e) {
-        res.status(400).send(JSON.stringify({ "error": "problem with posted data" }));
+        res.status(400).send(JSON.stringify({"error": "problem with posted data"}));
       }
     });
 
     // delete post
-    this.router.delete("/:id", cors(), (req: Request, res: Response) => {
-      const key = parseInt(req.params.id, 10);
+    this.router.delete("/:id", cors(), async (req: Request, res: Response) => {
+      const {params: {id}} = req;
+      const validation = await this.recieptController.checkExist(id);
 
-      if (!!reciepts[key]) {
-        res.json({ status: 200 });
+      if (validation.isValid) {
+        await this.recieptController.deleteReciept(id);
+
+        res.json({status: 200});
       } else {
-        res.status(404).send(JSON.stringify({ "error": "no such post" }));
+        res.status(404).json({"error": validation.error});
       }
     });
   }
